@@ -107,3 +107,17 @@ ul.songs li {
     justify-content: space-between;
     margin: 10px 0;
 }
+
+.container {
+    margin: 30px auto;
+    max-width: 100%;
+    width: 500px;
+}
+
+.container h2 {
+    font-weight: bolder;
+}
+
+.container p {
+    text-align: center;
+}
