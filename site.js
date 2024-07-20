@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showData(data);
     }
 
-    //display the song details
+    //display song details
     function showData(data){
         result.innerHTML = `
             <ul class="songs">
@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
         more.innerHTML = ''
     }
 
-    
+    async function getLyrics(artist, songTitle){
+        const response = await fetch(`${apiURL}/v1/${artist}/${songTitle}`)
+        const data = await response.json()
+
+         // Format the lyrics by replacing newlines with <br>
+        const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
+
+        //display them lyrics
+        
+    }
 
 });
