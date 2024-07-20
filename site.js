@@ -5,4 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const more = document.getElementById('more')
     const themeToggle = document.getElementById('theme-toggle')
 
+    // my API
+    const apiURL = 'https://api.lyrics.ovh'
+
+    // searchsongs async fn
+    async function searchsongs(term){
+        const response = await fetch(`&{apiURL}/suggest/&{term}`)
+        const data = await response.json()
+
+        showData(data);
+    }
+
+
+    
+
 });
