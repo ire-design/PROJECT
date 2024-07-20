@@ -132,3 +132,14 @@ header.dark-mode {
     background-color: #333;
 }
 
+/* search btn */
+button {
+    background-color: #e056fd;
+    color: #fff;
+}
+
+button.dark-mode {
+    background-color: #8d56fd;
+}
+
+
