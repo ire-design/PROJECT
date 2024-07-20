@@ -62,4 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    //e listener for clicks kwa div "result"
+    result.addEventListener('click', event => {
+        const clickedEl = event.target;
+        if (clickedEl.tagName === 'BUTTON') {
+            const artist = clickedEl.getAttribute('data-artist');
+            const songTitle = clickedEl.getAttribute('data-songtitle');
+            getLyrics(artist, songTitle);
+            //trynna debug the like btn
+        } else if (clickedEl.classList.contains('like-btn')) {
+            const heart = clickedEl.querySelector('.heart');
+            if (heart.innerHTML === '&#9825;') { // not liked
+                heart.innerHTML = '&#9829;'; // Liked
+                clickedEl.classList.add('liked');
+            } else { // Liked state
+                heart.innerHTML = '&#9825;'; // Unliked state
+                clickedEl.classList.remove('liked');
+            }
+
+            
+        }
+    });
 });
