@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!searchTerm) {
             alert('Please type something..'); 
         } else {
-            searchSongs(searchTerm); 
+            searchsongs(searchTerm); 
         }
     });
 
