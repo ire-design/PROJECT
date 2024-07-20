@@ -40,7 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
 
         //display them lyrics
+        result.innerHTML = `
+            <h2><strong>${artist}</strong> - ${songTitle}
+                <button class="btn like-btn" data-artist="${artist}" data-songtitle="${songTitle}">
+                    <span class="heart">&#9825;</span> Like
+                </button>
+            </h2><span>${lyrics}</span>
+        `;
         
+        more.innerHTML = '';
     }
 
 });
