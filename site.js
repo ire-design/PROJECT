@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // searchsongs async fn
     async function searchsongs(term){
-        const response = await fetch(`&{apiURL}/suggest/&{term}`)
+        const response = await fetch(`${apiURL}/suggest/${term}`)
         const data = await response.json()
 
         showData(data);
