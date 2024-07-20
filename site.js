@@ -32,23 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
         more.innerHTML = ''
     }
 
-    async function getLyrics(artist, songTitle){
-        const response = await fetch(`${apiURL}/v1/${artist}/${songTitle}`)
-        const data = await response.json()
+    async function getLyrics(artist, songTitle) {
+        try {
+            const response = await fetch(`${apiURL}/v1/${artist}/${songTitle}`);
+            const data = await response.json();
 
-         // Format the lyrics by replacing newlines with <br>
-        const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
-
-        //display them lyrics
-        result.innerHTML = `
-                <h2><strong>${artist}</strong> - ${songTitle}
+            if (response.ok) {
+                const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
+                result.innerHTML = `
+                    <h2><strong>${artist}</strong> - ${songTitle}</h2>
                     <button class="btn like-btn" data-artist="${artist}" data-songtitle="${songTitle}">
                         <span class="heart">&#9825;</span> Like
                     </button>
-                </h2><span>${lyrics}</span>
-            `;
-            
-            more.innerHTML = '';
+                    <pre>${lyrics}</pre>
+                `;
+            } else {
+                result.innerHTML = `<h2>Error: ${data.error}</h2>`;
+            }
+        } catch (error) {
+            result.innerHTML = `<h2>An error occurred. Please try again.</h2>`;
+            console.error('Error:', error);
+        }
+
+        more.innerHTML = '';
     }
 
     // Event listener for form submission
@@ -63,21 +69,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //e listener for clicks kwa div "result"
-    result.addEventListener('click', event => {
-        const clickedEl = event.target;
+        result.addEventListener('click', e => {
+        const clickedEl = e.target;
+    
         if (clickedEl.tagName === 'BUTTON') {
             const artist = clickedEl.getAttribute('data-artist');
             const songTitle = clickedEl.getAttribute('data-songtitle');
-            getLyrics(artist, songTitle);
-            //trynna debug the like btn
-        } else if (clickedEl.classList.contains('like-btn')) {
-            const heart = clickedEl.querySelector('.heart');
-            if (heart.innerHTML === '&#9825;') { // not liked
-                heart.innerHTML = '&#9829;'; // Liked
-                clickedEl.classList.add('liked');
-            } else { // Liked state
-                heart.innerHTML = '&#9825;'; // Unliked state
-                clickedEl.classList.remove('liked');
+            
+            if (clickedEl.classList.contains('btn') && !clickedEl.classList.contains('like-btn')) {
+                getLyrics(artist, songTitle);
+            } else if (clickedEl.classList.contains('like-btn')) {
+                //trynna debug the like btn
+                const heart = clickedEl.querySelector('.heart');
+                if (heart.innerHTML === '&#9825;') { // not liked
+                    heart.innerHTML = '&#9829;'; // Liked
+                    clickedEl.classList.add('liked');
+                } else { // Liked state
+                    heart.innerHTML = '&#9825;'; // Unliked state
+                    clickedEl.classList.remove('liked');
+                }
             }
         }
     });
