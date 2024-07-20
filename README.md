@@ -1,5 +1,6 @@
 # PROJECT
 # Lyrics Search
+- https://lyrics-search-project.vercel.app/
 
 A dynamic web application that allows users to search for song lyrics using artist names or song titles.
 
@@ -16,15 +17,23 @@ A dynamic web application that allows users to search for song lyrics using arti
    - Users enter an artist name or song title in the search bar.
    - The application queries the Lyrics.ovh API to fetch matching songs.
    - Results are displayed as a list of songs with artist names and titles.
+   ![Screenshot of the Lyrics Search Site](./images/search.png)
+
+   
 
 2. **Lyrics Display:**
    - Users can click the "Get Lyrics" button next to any song in the search results.
    - The application fetches and displays the full lyrics for the selected song.
+   ![Screenshot of the Lyrics Search Site](./images/SgetLyrics.png)
+
 
 3. **Like Feature:**
    - Each song's lyrics display includes a "Like" button.
+   ![Screenshot of the Lyrics Search Site](./images/SgetLyrics.png)
+   
    - Users can like or unlike a song by clicking this button.
    - The heart icon changes color and the button background updates to indicate the liked state.
+   ![Screenshot of the Lyrics Search Site](./images/sLike.png)
 
 4. **Theme Toggle:**
    - A "Toggle Theme" button allows users to switch between light and dark modes.
@@ -37,6 +46,7 @@ The application includes several error alerts to guide users:
 - If the search field is empty when submitted, an alert says "Please type something..".
 - If no results are found for a search term, the results area will display "No results found".
 - In case of API errors, appropriate error messages will be displayed to the user.
+![Screenshot of an API error](./images/sError.png)
 
 ## Technologies Used
 
