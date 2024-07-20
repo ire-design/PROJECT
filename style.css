@@ -143,3 +143,29 @@ button.dark-mode {
 }
 
 
+.like-btn {
+    background-color: #fff;
+    border: 0;
+    border-radius: 10px;
+    color: #000;
+    padding: 10px 20px;
+    margin-top: 10px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.like-btn .heart {
+    font-size: 25px;
+    margin-right: 8px;
+    transition: color 0.3s ease;
+}
+
+.like-btn.liked .heart {
+    color: #ff4d4d;
+}
+
+.like-btn.liked {
+    background-color: #ffeef0;
+}
