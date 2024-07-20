@@ -79,8 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 heart.innerHTML = '&#9825;'; // Unliked state
                 clickedEl.classList.remove('liked');
             }
+        }
+    });
 
-            
+     // Event listener for the theme toggle button
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('header').classList.toggle('dark-mode');
+        document.querySelectorAll('button').forEach(btn => btn.classList.toggle('dark-mode'));
+    });
+
+        result.addEventListener('click', e => {
+        const clickedEl = e.target.closest('.like-btn');
+
+        if (clickedEl && clickedEl.classList.contains('like-btn')) {
+            const heart = clickedEl.querySelector('.heart');
+
+            clickedEl.classList.toggle('liked');
+            if (clickedEl.classList.contains('liked')) {
+                heart.innerHTML = '&#9829;'; // Filled heart
+            } else {
+                heart.innerHTML = '&#9825;'; // Empty heart
+            }
         }
     });
 });
