@@ -41,14 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //display them lyrics
         result.innerHTML = `
-            <h2><strong>${artist}</strong> - ${songTitle}
-                <button class="btn like-btn" data-artist="${artist}" data-songtitle="${songTitle}">
-                    <span class="heart">&#9825;</span> Like
-                </button>
-            </h2><span>${lyrics}</span>
-        `;
-        
-        more.innerHTML = '';
+                <h2><strong>${artist}</strong> - ${songTitle}
+                    <button class="btn like-btn" data-artist="${artist}" data-songtitle="${songTitle}">
+                        <span class="heart">&#9825;</span> Like
+                    </button>
+                </h2><span>${lyrics}</span>
+            `;
+            
+            more.innerHTML = '';
     }
+
+    // Event listener for form submission
+    form.addEventListener('submit', event => {
+        event.preventDefault(); // Prevent default form submission
+        const searchTerm = search.value.trim(); // Get the search term and trim any extra spaces
+        if (!searchTerm) {
+            alert('Please type something..'); 
+        } else {
+            searchSongs(searchTerm); 
+        }
+    });
 
 });
