@@ -1,6 +1,7 @@
 # PROJECT
 # Lyrics Search
 - https://lyrics-search-project.vercel.app/
+- link for functionality : https://drive.google.com/file/d/1h6Htq2r2vRnF_WSkCRhgqKOYOYsMXDfJ/view?usp=drive_link
 
 A dynamic web application that allows users to search for song lyrics using artist names or song titles.
 
