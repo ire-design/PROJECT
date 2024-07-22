@@ -3,7 +3,6 @@
 
 # Lyrics Search
 ## Deployment
-- Public API used: https://api.lyrics.ovh
 - Project deployed link: https://lyrics-search-project.vercel.app/
 - Demo link : https://www.loom.com/share/2f1b63a203724db29e5d39045355f475?sid=87e6f4f3-539a-42c3-aeb6-ff012cc140fb
 
